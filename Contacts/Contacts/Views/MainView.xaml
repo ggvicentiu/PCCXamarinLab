@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contacts.Views.MainView"
+             BackgroundImage="mainbackground.png">
+  <ContentPage.Content/>
+  <StackLayout Orientation="Vertical" VerticalOptions="Start">
+    <Grid x:Name="Details">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2*" />
+        <ColumnDefinition Width="53*" />
+        <ColumnDefinition Width="23*" />
+        <ColumnDefinition Width="2*" />
+      </Grid.ColumnDefinitions>
+      <Image Source="Contacts.png" HorizontalOptions="Start" VerticalOptions="Center"  Grid.Row="0" Grid.Column="1" HeightRequest="75" WidthRequest="75"></Image>
+      <Button Text="Logout" TextColor="White" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="0" Grid.Column="2" Clicked="OnLogOut"/>
+    </Grid>
+
+    <Label Text="Swipe left to see more Prospects &lt;&lt;&lt;---" HorizontalOptions="StartAndExpand" TextColor="White" FontSize="Small"></Label>
+
+
+    <ScrollView  x:Name="ProspectScrollView" HorizontalOptions="FillAndExpand" Orientation="Horizontal"   >
+      <StackLayout Orientation="Horizontal"  x:Name="Prospects" VerticalOptions="End" />
+    </ScrollView>
+
+    <Label Text="Contacts" HorizontalOptions="StartAndExpand" TextColor="White" FontSize="Small"></Label>
+
+    <Grid x:Name="ContactsBackground" >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="14*" />
+        <ColumnDefinition Width="1*" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+      </Grid.RowDefinitions>
+      <Image x:Name="ContactsBG" Source="gradient_bg.jpg" Grid.Row="0" Grid.Column="1" Aspect="AspectFill"/>
+      <StackLayout Orientation="Vertical" VerticalOptions="Center"  Grid.Row="0" Grid.Column="1">
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           Color="Black"></ActivityIndicator>
+        <ListView x:Name="Contacts" BackgroundColor="Transparent"/>
+      </StackLayout>
+
+    </Grid>
+
+  </StackLayout>
+</ContentPage>
+
+

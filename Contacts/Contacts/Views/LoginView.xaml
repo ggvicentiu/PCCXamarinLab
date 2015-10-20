@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Contacts.Helpers;assembly=Contacts"
+             x:Class="Contacts.Views.LoginView"
+             BackgroundImage="mainbackground.png"
+             >
+  <ContentPage.Content />
+  <StackLayout Orientation="Vertical" VerticalOptions="Center">
+    <Grid x:Name="Logo">
+      <Grid.ColumnDefinitions>
+
+        <ColumnDefinition Width="*" />
+
+      </Grid.ColumnDefinitions>
+      <Image Source="{Binding MainImage}" VerticalOptions="Center" Grid.Row="0" Grid.Column="0"></Image>
+    </Grid>
+
+    <Grid >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="30*" />
+        <ColumnDefinition Width="70*" />
+      </Grid.ColumnDefinitions>
+
+      <Label Text="Username" TextColor="Black" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="0"/>
+
+      <local:ExtendedEntry x:Name="Username" Placeholder="example@mail.com" IsPassword="False" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.Column="1"
+                          VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" WidthRequest="200"></local:ExtendedEntry>
+
+      <Label Text="Password" TextColor="Black" VerticalOptions="Center"  HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="0"/>
+
+      <local:ExtendedEntry x:Name="Password" Placeholder="required" IsPassword="True" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="1"
+                          WidthRequest="200" BackgroundColor="Transparent"></local:ExtendedEntry>
+
+      <Label x:Name="NewAccount" Text="Register" VerticalOptions="Center"  HorizontalOptions="EndAndExpand" Grid.Row="2" Grid.Column="0" TextColor="White"/>
+      <Label x:Name="SignInLabel" Text="Login" TextColor="White"  VerticalOptions="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" />
+      <Label x:Name="ResetProspects" Text="Reset Prospects Data" TextColor="Red"  VerticalOptions="Center" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="EndAndExpand" />
+
+    </Grid>
+
+    <Grid x:Name="Logo2">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="5*" />
+        <ColumnDefinition Width="90*" />
+        <ColumnDefinition Width="5*" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height ="150"/>
+      </Grid.RowDefinitions>
+      <Image Source="{Binding ContactsLogo}" VerticalOptions="Center" Grid.Row="0" Grid.Column="1"></Image>
+    </Grid>
+
+  </StackLayout>
+</ContentPage>

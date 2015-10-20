@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+xmlns:local="clr-namespace:Contacts.Helpers;assembly=Contacts"
+x:Class="Contacts.ContactDetailView"
+BackgroundImage="mainbackground.png">
+  <ContentPage.Content/>
+  <StackLayout Orientation="Vertical" VerticalOptions="Start">
+    <Grid x:Name="Details" VerticalOptions="Start">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2*" />
+        <ColumnDefinition Width="53*" />
+        <ColumnDefinition Width="23*" />
+        <ColumnDefinition Width="2*" />
+      </Grid.ColumnDefinitions>
+      <Image Source="Contacts.png" HorizontalOptions="Start" VerticalOptions="Center"  Grid.Row="0" Grid.Column="1" HeightRequest="75" WidthRequest="75"></Image>
+      <Button Text="Logout" TextColor="White" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="0" Grid.Column="2" Clicked="OnLogOut"/>
+    </Grid>
+
+    <Grid x:Name="TaskDetails" BackgroundColor="Transparent">
+      <Grid.RowSpacing>
+        <OnPlatform x:TypeArguments="x:Double"  iOS="5" Android="1" WinPhone="0.1" ></OnPlatform>
+      </Grid.RowSpacing>
+
+      <Grid.ColumnDefinitions>
+
+        <ColumnDefinition Width="10*" />
+        <ColumnDefinition Width="80*" />
+        <ColumnDefinition Width="5*" />
+          <ColumnDefinition Width="5*" />
+
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition>
+          <RowDefinition.Height>
+            <OnPlatform x:TypeArguments="GridLength"  iOS="100" Android="125" WinPhone="150" ></OnPlatform>
+          </RowDefinition.Height>
+        </RowDefinition>
+        <RowDefinition>
+          <RowDefinition.Height>
+            <OnPlatform x:TypeArguments="GridLength"  iOS="40" Android="50" WinPhone="60" ></OnPlatform>
+          </RowDefinition.Height>
+        </RowDefinition>
+        <RowDefinition>
+          <RowDefinition.Height>
+            <OnPlatform x:TypeArguments="GridLength"  iOS="40" Android="50" WinPhone="60" ></OnPlatform>
+          </RowDefinition.Height>
+        </RowDefinition>
+        <RowDefinition>
+          <RowDefinition.Height>
+            <OnPlatform x:TypeArguments="GridLength"  iOS="40" Android="50" WinPhone="60" ></OnPlatform>
+          </RowDefinition.Height>
+        </RowDefinition>
+
+        <RowDefinition>
+          <RowDefinition.Height>
+            <OnPlatform x:TypeArguments="GridLength"  iOS="100" Android="125" WinPhone="150" ></OnPlatform>
+          </RowDefinition.Height>
+        </RowDefinition>
+
+        <RowDefinition>
+          <RowDefinition.Height>
+            <OnPlatform x:TypeArguments="GridLength"  iOS="40" Android="50" WinPhone="70" ></OnPlatform>
+          </RowDefinition.Height>
+        </RowDefinition>
+        <RowDefinition>
+
+          <RowDefinition.Height>
+            <OnPlatform x:TypeArguments="GridLength"  iOS="40" Android="50" WinPhone="70" ></OnPlatform>
+          </RowDefinition.Height>
+        </RowDefinition>
+
+        <RowDefinition>
+          <RowDefinition.Height>
+            <OnPlatform x:TypeArguments="GridLength"  iOS="40" Android="50" WinPhone="70" ></OnPlatform>
+          </RowDefinition.Height>
+        </RowDefinition>
+
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Image Source="{Binding Contact.PicUrl}" Grid.Row="0" Grid.Column="1" ></Image>
+      <local:ExtendedEntry BackgroundColor="Transparent" x:Name="Name" Text="{Binding Contact.Name}" Grid.Row="1" Grid.Column="1" VerticalOptions ="Center" ></local:ExtendedEntry>
+      <local:ExtendedEntry BackgroundColor="Transparent" x:Name="Phone" Text="{Binding Contact.Phone}" Grid.Row="2" Grid.Column="1"  VerticalOptions ="Center"></local:ExtendedEntry>
+      <Image Source="phone.png" Grid.Row="2" Grid.Column="2"  VerticalOptions ="Center">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                Tapped="OnCallClick"
+                NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+      <local:ExtendedEntry BackgroundColor="Transparent" x:Name="Location" Placeholder="(no location entered)" Text="{Binding Contact.Address}" Grid.Row="3" Grid.Column="1"  
+                            VerticalOptions ="Center"></local:ExtendedEntry>
+      <Image Source="location.png" Grid.Row="3" Grid.Column="2" VerticalOptions ="Center">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                Tapped="OnLocationClick"
+                NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+      <Editor x:Name="Notes" BackgroundColor="Transparent"  Text="{Binding Contact.Notes}" Grid.Row="4" Grid.Column="1" HorizontalOptions = "Start" WidthRequest="400" HeightRequest="200" >
+      </Editor>
+
+
+      <Button x:Name ="Save" Text="Update Contact" BorderWidth ="0" TextColor="Green" Grid.Row="5" Grid.Column="1" BackgroundColor="#ededed" Clicked="OnSaveClick" />
+      <Button x:Name ="Delete" Text="Delete Contact" TextColor="Purple" BorderWidth ="0" Grid.Row="6" Grid.Column="1"  BackgroundColor="#ededed" Clicked="OnDeleteClick" />
+      <Button x:Name ="Cancel" Text="Cancel" TextColor="Maroon" BorderWidth ="0" Grid.Row="7" Grid.Column="1" BackgroundColor="#ededed" Clicked="GoBack" />
+    </Grid>
+
+
+  </StackLayout>
+</ContentPage>
+
